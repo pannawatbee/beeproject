@@ -1,0 +1,47 @@
+<html>
+  <head> </head>
+  <body>
+    <style>
+      .img-restaurant {
+        width: 300px;
+        padding: 2vw 4vw;
+      }
+      .content-img {
+        width: 100%;
+        height: 300px;
+        overflow-y: scroll;
+        display: inline-block;
+        text-align: center;
+      }
+      input {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: block;
+      }
+    </style>
+    <script>
+      var filelist = new Array();
+
+      updateList = function () {
+        var input = document.getElementById("fileUploader");
+        var output = document.getElementById("divFiles");
+        var HTML = "";
+        for (var i = 0; i < input.files.length; ++i) {
+          console.log(input.files.item(i));
+          let data = URL.createObjectURL(input.files.item(i));
+          console.log(data);
+          HTML += `<img class="img-restaurant" src="${data}" alt=""></img>`;
+        }
+        output.innerHTML = HTML;
+      };
+    </script>
+    <div id="divFiles" class="content-img"></div>
+    <input
+      id="fileUploader"
+      type="file"
+      multiple="multiple"
+      onchange="updateList()"
+    />
+  </body>
+</html>

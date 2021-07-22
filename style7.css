@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+}
+.navigator {
+  width: 100%;
+  height: 120px;
+  background: #b22222;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-left {
+  /* border: 1px solid black; */
+  width: 1020px;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav-right {
+  /* border: 1px solid blue; */
+  width: 900px;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: 15px;
+  right: 10px;
+}
+a {
+  text-decoration: none !important;
+  font-size: 50px;
+  line-height: 59px;
+  color: #ffffff;
+  font-family: "Kanit", sans-serif;
+}
+a:hover {
+  color: rgba(250, 188, 116, 1);
+}
+
+.a-right {
+  font-size: 36px;
+  line-height: 42px;
+}
+.background {
+  background-color: rgba(196, 196, 196, 0.69);
+  height: 88vh;
+  width: 100%;
+}
+.whitebg-login {
+  width: 50%;
+  background-color: white;
+  height: 50%;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  font-size: 36px;
+  line-height: 42px;
+  justify-content: space-around;
+}
+input {
+  width: 80%;
+  /* text-align: center; */
+  margin-left: auto;
+  margin-right: auto;
+  height: 13%;
+  border-radius: 10px;
+  background-color: #b22222;
+  border: 0px;
+}
+button {
+  font-size: 36px;
+  line-height: 42px;
+  font-family: "Kanit", sans-serif;
+  color: #ffffff;
+  margin-left: 20px;
+  width: 20%;
+  /* height: 80%; */
+  border-radius: 10px;
+  border: 0px;
+  background-color: #b22222;
+}
+input[type="text"] {
+  font-size: 36px;
+  outline: none;
+}

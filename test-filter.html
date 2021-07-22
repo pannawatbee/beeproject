@@ -1,0 +1,68 @@
+<html>
+  <head> </head>
+  <body>
+    <style>
+      .img-restaurant {
+        width: 200px;
+      }
+    </style>
+    <script>
+      const RestaurantList = [
+        {
+          id: 1,
+          name: "ร้าน A",
+          categoryId: 1,
+          categoryName: "ร้านอาหารญี่ปุ่น",
+          img: "https://lh3.googleusercontent.com/proxy/LQfVhTdVNI_nkKCau5OGedokkCFMHJiM0FFbbZJkqbk8TGkjGao1G6nM7WWVZ0pfSP9cp8TABFIjRkIVRcKTaqAjRp_XvsuPdojwAwYFgSOWBtTxNhFH1nPcdkzUA9aoAA",
+        },
+        {
+          id: 2,
+          name: "ร้าน B",
+          categoryId: 2,
+          categoryName: "ร้านอาหารเกาหลี",
+          img: "https://pbs.twimg.com/media/EbFjn7sU4AEy75X.jpg",
+        },
+        {
+          id: 3,
+          name: "ร้าน C",
+          categoryId: 1,
+          categoryName: "ร้านอาหารญี่ปุ่น",
+          img: "https://www.prachachat.net/wp-content/uploads/2021/04/%E0%B9%84%E0%B8%81%E0%B9%88%E0%B8%97%E0%B8%AD%E0%B8%941-1-728x485.jpg",
+        },
+      ];
+      function handleCategory(categoryId) {
+        let CategoryData = categoryId;
+        let data = RestaurantList.filter((o) => {
+          return o.categoryId == CategoryData;
+        });
+        let contentRestaurant = "";
+        for (let i = 0; i < data.length; i++) {
+          contentRestaurant += `<div>`;
+          contentRestaurant += `<div>${data[i].name}</div>`;
+          contentRestaurant += `<img class="img-restaurant" src="${data[i].img}" alt=""></img>`;
+          contentRestaurant += `</div>`;
+        }
+        let content = document.getElementById("content");
+        content.innerHTML = contentRestaurant;
+      }
+
+      function clearFilterCategory() {
+        let data = RestaurantList;
+        let contentRestaurant = "";
+        for (let i = 0; i < data.length; i++) {
+          contentRestaurant += `<div>`;
+          contentRestaurant += `<div>${data[i].name}</div>`;
+          contentRestaurant += `<img class="img-restaurant" src="${data[i].img}" alt=""></img>`;
+          contentRestaurant += `</div>`;
+        }
+        let content = document.getElementById("content");
+        content.innerHTML = contentRestaurant;
+      }
+    </script>
+    <div>หมวดหมู่</div>
+    <button onclick="handleCategory('1')">ร้านอาหารญี่ปุ่น</button>
+    <button onclick="handleCategory('2')">ร้านอาหารเกาหลี</button>
+    <button onclick="clearFilterCategory()">ล้าง Filter</button>
+    <div id="content"></div>
+  </body>
+</html>
