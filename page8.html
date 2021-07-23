@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Lato:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style8.css" />
+  </head>
+  <body>
+    <script>
+      var filelist = new Array();
+
+      updateList = function () {
+        var input = document.getElementById("fileUploader");
+        var output = document.getElementById("divFiles");
+        var HTML = "";
+        for (var i = 0; i < input.files.length; ++i) {
+          console.log(input.files.item(i));
+          let data = URL.createObjectURL(input.files.item(i));
+          console.log(data);
+          HTML += `<img class="img-restaurant" src="${data}" alt=""></img>`;
+        }
+        output.innerHTML = HTML;
+      };
+    </script>
+    <div class="navigator">
+      <div class="nav-left">
+        <a href="page1.html">หน้าแรก</a>
+        <a href="page2.html">รีวิวร้านอาหาร</a>
+        <a href="page3.html">หมวดหมู่ร้านอาหาร</a>
+      </div>
+      <div class="nav-right">
+        <a href="#" class="a-right">PANNAWAT ANANCHAITAM</a>
+        <a href="page6.html" class="a-right">ติดต่อเรา</a>
+        <a href="page7.html" class="a-right">เข้าสู่ระบบ</a>
+      </div>
+    </div>
+    <div class="background">
+      <div class="whitebg-register">
+        <div class="blue-bac"><p>สมัครสมาชิก</p></div>
+        <div class="name">
+          <p>ชื่อจริง</p>
+          <input type="text" />
+        </div>
+        <div class="name">
+          <p>นามสกุล</p>
+          <input type="text" />
+        </div>
+        <div class="name">
+          <p>อีเมลล์</p>
+          <input type="text" />
+        </div>
+        <div class="name">
+          <p>พาสเวิร์ด</p>
+          <input type="text" />
+        </div>
+        <div class="name">
+          <p>ยืนยันพาสเวิร์ด</p>
+          <input type="text" />
+        </div>
+        <div class="sumbit">
+            <button>สมัครสมาชิก</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
