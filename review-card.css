@@ -2,8 +2,9 @@ body {
   margin: 0;
   font-family: "Kanit", sans-serif;
 }
+
 .navigator {
-  width: 100%;
+  width: 1920px;
   height: 120px;
   background: #b22222;
   display: flex;
@@ -24,6 +25,9 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
+  top: 15px;
+  right: 10px;
 }
 a {
   text-decoration: none !important;
@@ -40,6 +44,7 @@ a:hover {
   font-size: 36px;
   line-height: 42px;
 }
+
 .food-background {
   width: 100%;
   height: 600px;
@@ -135,7 +140,7 @@ a:hover {
 .bac-mid {
   width: 1740px;
   height: 960px;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   position: relative;
   top: 80px;
   display: flex;
@@ -144,7 +149,7 @@ a:hover {
 .bac-left {
   width: 65%;
   height: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* background-color: white; */
   position: relative;
 }
@@ -152,7 +157,7 @@ a:hover {
 .bac-left-card {
   width: 65%;
   height: 80%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   position: absolute;
   background-color: white;
 }
@@ -160,7 +165,7 @@ a:hover {
 .bac-right {
   width: 30%;
   height: 50%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -261,12 +266,18 @@ a:hover {
   line-height: 42px;
   margin-left: 10%;
 }
-.content p {
+/* .content p {
   margin: 5%;
   line-break: anywhere;
+} */
+.p-content {
+  width: 80%;
+  margin: 0px;
+  margin-top: 20px;
+  margin-left: 60px;
 }
 
-@media (max-width : 1800px) {
+@media (max-width: 1800px) {
   .navigator {
     flex-direction: column;
   }
@@ -280,7 +291,7 @@ a:hover {
   }
 }
 
-@media (max-width : 1000px) {
+@media (max-width: 1000px) {
   .navigator {
     height: 16vw;
   }
@@ -295,16 +306,16 @@ a:hover {
     height: 8vw;
   }
 
-  .nav-left a{
+  .nav-left a {
     font-size: 3vw;
   }
 
-  .nav-right a{
+  .nav-right a {
     font-size: 3vw;
   }
 }
 
-@media (max-width : 1280px) {
+@media (max-width: 1280px) {
   .review-point-bac {
     right: 5%;
   }
@@ -325,8 +336,7 @@ a:hover {
   }
 }
 
-@media (max-width : 767px) {
-  
+@media (max-width: 767px) {
   .food-background {
     height: 400px;
   }
