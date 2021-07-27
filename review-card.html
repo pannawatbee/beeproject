@@ -30,16 +30,13 @@
       </div>
     </div>
 
-    <div class="food-background">
-      <h3>Hottobun</h3>
-      <p>
-        ฮอตโตะ บัน เป็นร้านอาหารกึ่งคาเฟ่สไตล์ญี่ปุ่นร่วมสมัย
-        มีเมนูที่อร่อยมากหลากหลาย จากไอเดียสุดเฉียบของเชฟมากฝีมือจาก New York...
-      </p>
+    <div class="food-background" id="food-background">
+      <h3 id="restaurant-name"></h3>
+      <p id="restaurant-detail"></p>
       <div class="review-point-bac">
-        <div class="review-point">4.2</div>
+        <div class="review-point" id="review-point"></div>
         <div class="star">★</div>
-        <div class="num-review">( 5 รีวิว)</div>
+        <div class="num-review" id="num-review"></div>
       </div>
       <div class="write-review-bac">
         <div class="write-review">
@@ -113,5 +110,23 @@
         </div>
       </div>
     </div>
+    <script type="module">
+      import { restaurantMock } from "./restaurantMock.js"
+      const urlParams = new URLSearchParams(window.location.search);
+      const restaurantId = urlParams.get('resId');
+      let data = restaurantMock.find(o => {
+        return o.restaurantId == restaurantId
+      })
+      let name = document.getElementById('restaurant-name')
+      let detail = document.getElementById('restaurant-detail')
+      let reviewPoint = document.getElementById('review-point')
+      let numReview = document.getElementById('num-review')
+      let background = document.getElementById('food-background')
+      name.innerHTML = data.restaurantName
+      detail.innerHTML = data.restaurantDetail
+      reviewPoint.innerHTML = data.restaurantRating
+      numReview.innerHTML = "(" + data.restaurantReviewCount + " รีวิว)"
+      background.style.backgroundImage = `url(${data.restaurantImage})`
+    </script>
   </body>
 </html>

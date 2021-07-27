@@ -48,7 +48,7 @@ a:hover {
 .background {
   background-color: rgba(196, 196, 196, 0.69);
   /* background-color: red; */
-  height: 960px;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -102,14 +102,13 @@ a:hover {
 
 .card-container {
   width: 1386px;
-  height: 755px;
+  height: 100%;
   /* border: 1px solid green; */
-  position: absolute;
-  top: 20%;
   display: flex;
   justify-content: space-around;
   /* align-items: center; */
   flex-wrap: wrap;
+  margin-top: 230px;
 }
 .card1 {
   width: 350px;
@@ -117,6 +116,7 @@ a:hover {
   /* border: 1px solid green; */
   border-radius: 20px;
   position: relative;
+  margin-bottom: 20px;
 }
 .card1 img {
   width: 350px;

@@ -37,47 +37,46 @@
         </div>
         <div class="wh-ba-right">
           <a href="user-add-res.html"><p>เพิ่มร้านอาหาร</p></a>
-          <a href="#"><p class="wh-ba-right-ptag">ดูทั้งหมด</p></a>
+          <a href="#" id="see-more-restaurant"><p class="wh-ba-right-ptag">ดูทั้งหมด</p></a>
         </div>
       </div>
-      <div class="card-container">
-        <div class="card1">
+      <div id="card-container" class="card-container">
+        <!-- <div class="card1">
           <a href="review-card.html"
             ><img src="picture/Hottobun.jpg" alt="" />
             <p>Hottobun</p></a
           >
-        </div>
-        <div class="card2">
-          <a href="#"
-            ><img src="picture/copper.png" alt="" />
-            <p>Copper Buffet</p></a
-          >
-        </div>
-        <div class="card3">
-          <a href="#"
-            ><img src="picture/starbuck.jpg" alt="" />
-            <p>Starbuck</p></a
-          >
-        </div>
-        <div class="card4">
-          <a href="#"
-            ><img src="picture/blackcan3.jpg" alt="" />
-            <p>Black Canyon</p></a
-          >
-        </div>
-        <div class="card5">
-          <a href="#"
-            ><img src="picture/sawadee.jpg" alt="" />
-            <p>Sawasdee</p></a
-          >
-        </div>
-        <div class="card6">
-          <a href="#"
-            ><img src="picture/santa fe steak.jpg" alt="" />
-            <p>Santa Fe'Steak</p></a
-          >
-        </div>
+        </div> -->
       </div>
     </div>
+    <script type="module">
+      import { restaurantMock } from "./restaurantMock.js"
+      function restaurantList(isSeeAll = false) {
+        let content = ""
+        let countContent = 0
+        if(isSeeAll) countContent = restaurantMock.length
+        else {
+          if(restaurantMock.length >= 6) countContent = 6
+          else countContent = restaurantMock.length
+        }
+        for(let i = 0 ; i < countContent ; i++) {
+          content += '<div class="card1">'
+          content += `<a href="${restaurantMock[i].restaurantDetailLink}">`
+          content += `<img src="${restaurantMock[i].restaurantImage}" alt="" />`
+          content += `<p>${restaurantMock[i].restaurantName}</p>`
+          content += '</a>'
+          content += '</div>'
+        }
+        document.getElementById("card-container").innerHTML += content
+      }
+
+      function seeMoreRestaurant() {
+        document.getElementById("card-container").innerHTML = ""
+        restaurantList(true)
+      }
+      
+      document.getElementById("see-more-restaurant").addEventListener('click' , seeMoreRestaurant)
+      restaurantList()
+    </script>
   </body>
 </html>
