@@ -17,22 +17,6 @@
     <link rel="stylesheet" href="user-add-res.css" />
   </head>
   <body>
-    <script>
-      var filelist = new Array();
-
-      updateList = function () {
-        var input = document.getElementById("fileUploader");
-        var output = document.getElementById("divFiles");
-        var HTML = "";
-        for (var i = 0; i < input.files.length; ++i) {
-          console.log(input.files.item(i));
-          let data = URL.createObjectURL(input.files.item(i));
-          console.log(data);
-          HTML += `<img class="img-restaurant" src="${data}" alt=""></img>`;
-        }
-        output.innerHTML = HTML;
-      };
-    </script>
     <div class="navigator">
       <div class="nav-left">
         <a href="page1.html">หน้าแรก</a>
@@ -50,7 +34,7 @@
       <div class="content-bc">
         <div class="content-bc-1">
           <p>ชื่อร้านอาหาร</p>
-          <input type="text" />
+          <input id="restaurant-name" type="text" />
         </div>
         <div class="content-bc-2">
           <div style="width: 20%; height: 100%" class="content-bc-2-1">
@@ -94,9 +78,9 @@
           >
             <p style="margin-top: 0px; margin-bottom: 30px">เวลาเปิด-ปิด</p>
             <div style="display: flex; margin-bottom: 30px">
-              <input type="text" style="width: 50%" />
+              <input type="text" style="width: 50%" id="open-restaurant" />
               <span style="font-size: 40px">-</span>
-              <input type="text" style="width: 50%" />
+              <input type="text" style="width: 50%" id="close-restaurant" />
             </div>
             <p style="margin-bottom: 0px; margin-top: 0px; margin-bottom: 30px">
               เปิดวัน
@@ -104,6 +88,7 @@
             <input
               type="text"
               style="width: 100%; height: 60px; box-sizing: border-box"
+              id="open-date"
             />
           </div>
           <div style="width: 15%; height: 100%" class="content-bc-2-3">
@@ -117,6 +102,7 @@
                   height: 60px;
                   margin-bottom: 30px;
                 "
+                id="range-amount"
               />
             </div>
             <div>
@@ -124,6 +110,7 @@
               <input
                 type="text"
                 style="width: 100%; box-sizing: border-box; height: 60px"
+                id="cate-restaurant"
               />
             </div>
           </div>
@@ -131,10 +118,10 @@
             <p style="margin-top: 0px; margin-bottom: 15px">พิกัดร้าน</p>
             <textarea
               name=""
-              id=""
               cols="30"
               rows="10"
               style="width: 100%; box-sizing: border-box; height: 80%"
+              id="location"
             ></textarea>
           </div>
         </div>
@@ -144,10 +131,10 @@
           </p>
           <textarea
             name=""
-            id=""
             cols="30"
             rows="10"
             style="width: 100%; box-sizing: border-box; height: 75%"
+            id="description-restaurant"
           ></textarea>
         </div>
       </div>
@@ -164,15 +151,52 @@
             id="fileUploader"
             name="fileUploader"
             type="file"
-            multiple="multiple"
-            onchange="updateList()"
           />
         </div>
         <div class="button-review-cancel">
-          <button class="sumbit-res">บันทึกร้านอาหาร</button>
+          <button id="save-res" class="sumbit-res">บันทึกร้านอาหาร</button>
           <button class="cancel-res">ยกเลิก</button>
         </div>
       </div>
     </div>
+    <script type="module">
+      import { restaurantMock } from "./restaurantMock.js"
+      var fileImg = []
+
+      function updateList() {
+        var input = document.getElementById("fileUploader");
+        var output = document.getElementById("divFiles");
+        var HTML = "";
+        fileImg = []
+        for (var i = 0; i < input.files.length; ++i) {
+          let dataImgUrl = URL.createObjectURL(input.files.item(i));
+          fileImg.push(dataImgUrl)
+          HTML += `<img class="img-restaurant" src="${dataImgUrl}" alt=""></img>`;
+        }
+        output.innerHTML = HTML;
+      }
+      
+      document.getElementById("fileUploader").addEventListener('change' , updateList)
+
+      function saveRestaurant() {
+        let Obj = {}
+        Obj.restaurantName = document.getElementById('restaurant-name').value
+        Obj.carPark = document.getElementById('carpark').checked
+        Obj.wifi = document.getElementById('wifi').checked
+        Obj.credit = document.getElementById('creditcard').checked
+        Obj.open = document.getElementById('open-restaurant').value
+        Obj.close = document.getElementById('close-restaurant').value
+        Obj.openDate = document.getElementById('open-date').value
+        Obj.rangeAmount = document.getElementById('range-amount').value
+        Obj.categoryRes = document.getElementById('cate-restaurant').value
+        Obj.location = document.getElementById('location').value
+        Obj.descRestaurant = document.getElementById('description-restaurant').value
+        Obj.restaurantImage = fileImg[0]
+
+        console.log(Obj)
+      }
+
+      document.getElementById("save-res").addEventListener('click' , saveRestaurant)
+    </script>
   </body>
 </html>

@@ -37,24 +37,4 @@ export const restaurantMock = [
         restaurantImage : "picture/santa fe steak.jpg",
         restaurantDetailLink : "#"
     },
-    {
-        restaurantName : "ย่างเนย",
-        restaurantImage : "https://img.wongnai.com/p/1920x0/2019/01/24/f9f97dc1973d4e15a129ed6637930a45.jpg",
-        restaurantDetailLink : "#"
-    },
-    {
-        restaurantName : "ย่างเนย",
-        restaurantImage : "https://img.wongnai.com/p/1920x0/2019/01/24/f9f97dc1973d4e15a129ed6637930a45.jpg",
-        restaurantDetailLink : "#"
-    },
-    {
-        restaurantName : "ย่างเนย",
-        restaurantImage : "https://img.wongnai.com/p/1920x0/2019/01/24/f9f97dc1973d4e15a129ed6637930a45.jpg",
-        restaurantDetailLink : "#"
-    },
-    {
-        restaurantName : "ย่างเนย",
-        restaurantImage : "https://img.wongnai.com/p/1920x0/2019/01/24/f9f97dc1973d4e15a129ed6637930a45.jpg",
-        restaurantDetailLink : "#"
-    },
 ]
